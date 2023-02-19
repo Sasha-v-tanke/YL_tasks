@@ -1,3 +1,4 @@
+import pprint
 import sys
 from io import BytesIO
 # Этот класс поможет нам сделать картинку из потока байт
@@ -26,7 +27,9 @@ if not response:
 # Преобразуем ответ в json-объект
 json_response = response.json()
 # Получаем первый топоним из ответа геокодера.
-toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
+toponym = json_response["response"]["GeoObjectCollection"][
+    "featureMember"][0]["GeoObject"]
+pprint.pprint(toponym)
 # Координаты центра топонима:
 toponym_coodrinates = toponym["Point"]["pos"]
 # Долгота и широта:
