@@ -31,10 +31,15 @@ def mission_image():
                     </head>
                     <body>
                         <h1>Жди нас, Марс!</h1>
-                        <img src="static/img/img.png" alt="Mars">
+                        <img src="static/img/mars.png" alt="Mars">
                         <p>Мы скоро прилетим!</p>
                     </body>
                 </html>"""
+
+
+@app.route("/promotion_image")
+def promotion_image():
+    return render_template('promotion_image.html')
 
 
 if __name__ == "__main__":

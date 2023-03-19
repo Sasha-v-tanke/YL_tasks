@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+  <head>
+    <title>Реклама на Марсе</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h1 class="text-danger">Жди нас, Марс!</h1>
+          <img src="{{ url_for('static', filename='img/mars.png') }}" alt="Mars">
+        </div>
+        <div class="col-md-5">
+          <p class="alert alert-success">
+            <div class="gray">Человечество вырастает из детства.</div>
+            <div class="green">Человечеству мала одна планета.</div>
+            <p>Мы сделаем обитаемыми безжизненные пока планеты.</p>
+            <div class="yellow">И начнем с Марса!</div>
+            <div class="red">Присоединяйся!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  </body>
+</html>
