@@ -1,46 +1,31 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 
-@app.route("/")
-def mission_name():
-    return "Миссия Колонизация Марса"
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
 
 
-@app.route("/index")
-def mission_slogan():
-    return "И на Марсе будут яблони цвести!"
+@app.route('/', methods=['POST'])
+def submit_form():
+    # Получение данных из формы
+    surname = request.form['surname']
+    name = request.form['name']
+    email = request.form['email']
+    jobs = []
+    for i in range(1, 17):
+        jobs.append(request.form.get("job" + str(i)))
+    education = request.form['qualification']
+    gender = request.form['gender']
+    motivation = request.form['motivation']
+    stay_on_mars = request.form.get('stay_on_mars')
+
+    file = request.files['file']
+
+    return 'Анкета успешно отправлена!'
 
 
-@app.route("/promotion")
-def mission_promotion():
-    return '''Человечество вырастает из детства.<br>
-              Человечеству мала одна планета.<br>
-              Мы сделаем обитаемыми безжизненные пока планеты.<br>
-              И начнем с Марса!<br>
-              Присоединяйся!'''
-
-
-@app.route("/image_mars")
-def mission_image():
-    return """<!DOCTYPE html>
-                <html>
-                    <head>
-                        <title>Привет, Марс!</title>
-                    </head>
-                    <body>
-                        <h1>Жди нас, Марс!</h1>
-                        <img src="static/img/mars.png" alt="Mars">
-                        <p>Мы скоро прилетим!</p>
-                    </body>
-                </html>"""
-
-
-@app.route("/promotion_image")
-def promotion_image():
-    return render_template('promotion_image.html')
-
-
-if __name__ == "__main__":
-    app.run(port=8080)
+if __name__ == '__main__':
+    app.run(debug=True)
