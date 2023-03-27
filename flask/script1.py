@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from setuptools._entry_points import render
 
 app = Flask(__name__)
 
@@ -21,6 +20,36 @@ def list_prof(list):
     professions = ['Пилот', 'Инженер', 'Астроном', 'Биолог', 'Химик', 'Геолог', 'Врач', 'Строитель']
 
     return render_template('list_prof.html', professions=professions, list=list)
+
+
+@app.route('/auto_answer', methods=['POST'])
+def auto_answer():
+    data = {
+        'title': 'Ответ на анкету',
+        'surname': request.form['surname'],
+        'name': request.form['name'],
+        'education': request.form['education'],
+        'profession': request.form['profession'],
+        'sex': request.form['sex'],
+        'motivation': request.form['motivation'],
+        'ready': request.form.get('ready', 'Нет')
+    }
+    return render_template('auto_answer.html', **data)
+
+
+@app.route('/answer')
+def answer():
+    data = {
+        'title': 'Ответ на анкету',
+        'surname': 'Иванов',
+        'name': 'Иван',
+        'education': 'Высшее',
+        'profession': 'Инженер-строитель',
+        'sex': 'Мужской',
+        'motivation': 'Хочу покорить космос',
+        'ready': 'Да'
+    }
+    return render_template('auto_answer.html', **data)
 
 
 if __name__ == "__main__":
