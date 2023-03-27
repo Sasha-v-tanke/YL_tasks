@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Тренировка{% endblock %}
+
+{% block content %}
+{% if 'инженер' in profession or 'строитель' in profession %}
+  <h2>Инженерные тренажеры</h2>
+  <p>Схема расположения инженерных тренажеров на космическом корабле:</p>
+  <img src="{{ url_for('static', filename='img/engineer_plan.png') }}" alt="Схема расположения инженерных тренажеров">
+{% else %}
+  <h2>Научные симуляторы</h2>
+  <p>Схема расположения научных симуляторов на космическом корабле:</p>
+  <img src="{{ url_for('static', filename='img/scientist_plan.png') }}" alt="Схема расположения научных симуляторов">
+{% endif %}
+{% endblock %}
