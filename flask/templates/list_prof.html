@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Список профессий{% endblock %}
+
+{% block content %}
+<h2>Список профессий для успешной работы миссии на Марсе:</h2>
+
+{% if list == 'ol' %}
+    <ol>
+{% elif list == 'ul' %}
+    <ul>
+{% else %}
+    <p>Неверное значение параметра <code>list</code>.</p>
+{% endif %}
+
+{% if list %}
+    {% for profession in professions %}
+        {% if profession == 'Инженер' or profession == 'Строитель' %}
+            {% if list == 'ol' %}
+                <li> {{ profession }} - тренажеры для инженеров </li>
+            {% elif list == 'ul' %}
+                <li> {{ profession }} - симуляторы для инженеров </li>
+            {% endif %}
+        {% else %}
+            {% if list == 'ol' %}
+                <li> {{ profession }} </li>
+            {% elif list == 'ul' %}
+                <li> {{ profession }} </li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% if list == 'ol' %}
+    </ol>
+{% elif list == 'ul' %}
+    </ul>
+{% endif %}
+{% endblock %}
