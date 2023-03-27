@@ -1,32 +1,13 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8">
-  <head>
-    <title>Планеты</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-7">
-          <h1 class="text-danger">Мое предложение: {{ name }}</h1>
-        </div>
-        <div class="col-md-5">
-          <p class="alert alert-success">
-            {%if name == "Марс"%}
-            <div class="gray">Марс - это четвертая планета от Солнца,</div>
-            <div class="yellow">и считается наиболее перспективной для колонизации.</div>
-            <div class="green">Он имеет сходные условия с Землей и может быть терраформирован в будущем.</div>
-            <div class="red">Будущие колонисты Марса должны быть готовы к длительным исследовательским миссиям, </div>
-            <div class="orange">а также к участию в процессе терраформирования планеты.</div>
-            {%else%}
-            <div class="gray">Нет информации</div>
-            {%endif%}
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-  </body>
+<head>
+    <title>Результаты отбора</title>
+</head>
+<body>
+    <h1 style="background-color:green;">Поздравляем!</h1>
+    <p>Вы успешно прошли этап отбора № {{ level }}!</p>
+    <p>Ваш никнейм: {{ nickname }}</p>
+    <p>Ваш текущий рейтинг: {{ rating }}</p>
+    <h2 style="background-color:yellow;">Желаем удачи в следующем этапе!</h2>
+</body>
 </html>
