@@ -1,18 +1,3 @@
-h1 {
-color: red;
-}
-.gray {
-background-color: gray
-}
-.green {
-background-color: green
-}
-.yellow {
-background-color: yellow
-}
-.red {
-background-color: red
-}
-.orange {
-background-color: orange
+.container {
+    margin-top: 50px;
 }
