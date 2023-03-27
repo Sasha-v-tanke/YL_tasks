@@ -52,5 +52,10 @@ def answer():
     return render_template('auto_answer.html', **data)
 
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
+
+
 if __name__ == "__main__":
     app.run()
